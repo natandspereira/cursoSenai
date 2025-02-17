@@ -9,9 +9,17 @@
 </head>
 
 <body>
+    
 
      <form action="./form/form.php" method="POST">
-        <div class="divAllForm"> 
+        
+        <h1>Cadastro</h1>   
+
+         <div class="divPeopleInformation"> 
+            <div class="divLabelPersonalData"> 
+                <label for="personalData">Dados Pessoais</label>
+            </div>
+            <!-- DIV FIRST NAME AND LAST NAME -->
             <div class="divName"> 
                 <!-- NOME -->
                 <label for="firstName">Nome:</label>
@@ -23,6 +31,9 @@
                 <input type="text" name="lastName" id="lastName">
                 <!-- SOBRENOME -->
             </div>
+            <!-- DIV FIRST NAME AND LAST NAME -->
+
+        <!-- DIV EMAIL AND TELEPHONE -->
             <div class="divEmailAndTelephone"> 
             <!-- EMAIL  -->
                 <label for="email">Email:</label>
@@ -34,35 +45,52 @@
                 <input type="text" name="telephone" id="telephone">
             <!-- TELEFONE -->
             </div>
+        </div>
+        <!-- DIV EMAIL AND TELEPHONE -->
 
-           <!-- ENDEREÇO -->
-            <div class="divRoadAndComplement"> 
-                <label for="road">Rua:</label>
-                <input type="text" name="road" id="road">
+        <!-- DIV ADDRES -->
 
-                <label for="complement">Complemento:</label>
-                <input type="text" name="complement" id="complement">
-            </div>
+            <!-- ENDEREÇO -->
+            <div class="divAddress"> 
 
-            <div class="divCityAndState">             
-                <label for="city">Cidade:</label>
-                <input type="text" name="city" id="city">
+            <label for="address">Endereço</label>
 
-                <label for="state">Estado:</label>
-                <input type="text" name="state" id="state">
-            </div>
+                <div class="divRoadAndComplement"> 
+                    <label for="road">Rua:</label>
+                    <input type="text" name="road" id="road">
 
-            <div class="divCep"> 
-                <label for="cep">CEP:</label>
-                <input type="text" name="cep" id="cep">
+                    <label for="complement">Complemento:</label>
+                    <input type="text" name="complement" id="complement">
+                </div>
+
+                <div class="divCityAndState">             
+                    <label for="city">Cidade:</label>
+                    <input type="text" name="city" id="city">
+
+                    <label for="state">Estado:</label>
+                    <input type="text" name="state" id="state">
+                </div>
+
+                <div class="divCep"> 
+                    <label for="cep">CEP:</label>
+                    <input type="text" name="cep" id="cep">
+                </div>
             </div>
             <!-- ENDEREÇO -->
 
-            <div class="divSubmit"> 
+        <!-- DIV ADDRES -->
+
+        <!-- DIV SUBMIT -->
+
             <!-- BOTÃO -->
-            <input type="submit">
+            <div class="divSubmit"> 
+                <input type="submit">
             </div>
-        </div>
+              <!-- BOTÃO -->
+
+        <!-- DIV SUBMIT -->
+         
+        
     </form>
 
 

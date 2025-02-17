@@ -15,16 +15,45 @@ body {
     background-color: #f4f4f4;
 }
 
-.divAllForm {
-    display: grid;
-    justify-content: center;
+h1{
+    display: flex;
+    flex-direction: row;
     align-items: center;
-    margin: 10% auto;
-    gap: 20px;
-    max-width: 800px; /* Define a largura máxima do formulário */
-    width: 100%;
+    justify-content: center;
+    font-size: 3.0rem;
 }
 
+
+.divPeopleInformation {
+    display: grid;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 15px;
+    margin: 5% auto; 
+}
+
+.divLabelPersonalData{
+    label{
+        margin-left: 45px;
+    }
+}
+
+.divAddress{
+    display: grid;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 10px;
+}
 .divName, 
 .divEmailAndTelephone, 
 .divRoadAndComplement, 
@@ -43,7 +72,7 @@ body {
     flex-direction: row;
     justify-content: left;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
     width: 100%;
 }
 
@@ -52,6 +81,7 @@ body {
     align-items: center;
     justify-content: center;
     width: 100%;
+    margin: auto 0 auto 0;
 
     & input[type="submit"]{
         width: 150px;
@@ -65,6 +95,8 @@ label {
     text-align: right; /* Alinha os labels à direita */
     width: 100px; /* Define uma largura fixa para os labels para alinhá-los */
 }
+
+
 
 input {
     width: 300px; /* Definindo o tamanho fixo para todos os inputs */
@@ -81,6 +113,7 @@ input {
 
 input[type="text"]:hover{
     border-color: #0056b3;
+    cursor: pointer;
 }
 
 
@@ -94,8 +127,10 @@ input[type="submit"] {
     font-size: 16px;
     border-radius: 4px;
     display: flex;
+    margin-top: 20px;
 }
 
 input[type="submit"]:hover {
     background-color: #0056b3;
+    cursor: pointer;
 }

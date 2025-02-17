@@ -14,15 +14,11 @@
 
     // Exibe os dados enviados
     echo "<h1>Dados Recebidos</h1>";
-    echo "<p><strong>Nome:</strong> " . $name . "</p>";
-    echo "<p><strong>Sobrenome:</strong> " . $lastName . "</p>";
+    echo "<p><strong>Nome Completo:</strong> " . $name . " " . $lastName . "</p>";
     echo "<p><strong>E-mail:</strong> " . $email . "</p>";
     echo "<p><strong>Telefone:</strong> " . $telephone . "</p>";
-    echo "<p><strong>Rua:</strong> " . $road . "</p>";
-    echo "<p><strong>Complemento:</strong> " . $complement . "</p>";
-    echo "<p><strong>Cidade:</strong> " . $city . "</p>";
-    echo "<p><strong>Estado:</strong> " . $state . "</p>";
-    echo "<p><strong>Cep:</strong> " . $cep . "</p>";
+    echo "<p><strong>Endereço:</strong> " . $road . ", " . $complement . " - " . $city . ", " . $state . ", CEP: " . $cep . "</p>";
+    
 } else {
     echo "Dados não enviados.";
 }
