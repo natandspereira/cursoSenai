@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.divAllForm {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin: 10% auto;
+    gap: 20px;
+    max-width: 800px; /* Define a largura máxima do formulário */
+    width: 100%;
+}
+
+.divName, 
+.divEmailAndTelephone, 
+.divRoadAndComplement, 
+.divCityAndState
+{
+    display: flex;
+    flex-direction: row; /* Alinha os elementos horizontalmente */
+    justify-content: center; /* Centraliza os itens dentro da linha */
+    align-items: center; /* Alinha os itens verticalmente no centro */
+    gap: 20px; /* Espaço entre os elementos */
+    width: 100%; /* Certifica-se de que a linha ocupe toda a largura */
+}
+
+.divCep{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.divSubmit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    & input[type="submit"]{
+        width: 150px;
+        padding: 10px;
+    }
+}
+
+label {
+    font-weight: bold;
+    margin-right: 10px; /* Distância entre o label e o input */
+    text-align: right; /* Alinha os labels à direita */
+    width: 100px; /* Define uma largura fixa para os labels para alinhá-los */
+}
+
+input {
+    width: 300px; /* Definindo o tamanho fixo para todos os inputs */
+    height: 35px;
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: block; /* Faz com que os inputs sejam blocos e ocupem toda a largura */
+    text-align: center; /* Centraliza o texto dentro dos inputs */
+}
+
+
+input[type="text"]:hover{
+    border-color: #0056b3;
+}
+
+
+input[type="submit"] {
+    width: 300px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    display: flex;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
