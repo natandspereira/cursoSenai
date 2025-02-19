@@ -15,7 +15,7 @@ body {
     background-color: #f4f4f4;
 }
 
-h1{
+h1 {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -23,10 +23,9 @@ h1{
     font-size: 3.0rem;
 }
 
-
-.divPeopleInformation {
+.divPeopleInformation,
+.divAddress {
     display: grid;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 20px;
@@ -34,40 +33,26 @@ h1{
     border: 2px solid black;
     border-radius: 20px;
     padding: 15px;
-    margin: 5% auto; 
+    margin: 5% auto;
 }
 
-.divLabelPersonalData{
-    label{
-        margin-left: 45px;
-    }
+.divLabelPersonalData label {
+    margin-left: 45px;
 }
 
-.divAddress{
-    display: grid;
+.divName,
+.divEmailAndTelephone,
+.divRoadAndComplement,
+.divCityAndState {
+    display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 20px;
     width: 100%;
-    border: 2px solid black;
-    border-radius: 20px;
-    padding: 10px;
-}
-.divName, 
-.divEmailAndTelephone, 
-.divRoadAndComplement, 
-.divCityAndState
-{
-    display: flex;
-    flex-direction: row; /* Alinha os elementos horizontalmente */
-    justify-content: center; /* Centraliza os itens dentro da linha */
-    align-items: center; /* Alinha os itens verticalmente no centro */
-    gap: 20px; /* Espaço entre os elementos */
-    width: 100%; /* Certifica-se de que a linha ocupe toda a largura */
 }
 
-.divCep{
+.divCep {
     display: flex;
     flex-direction: row;
     justify-content: left;
@@ -76,46 +61,51 @@ h1{
     width: 100%;
 }
 
-.divSubmit{
+.divSubmit {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     width: 100%;
-    margin: auto 0 auto 0;
+    margin: auto 0;
+}
 
-    & input[type="submit"]{
-        width: 150px;
-        padding: 10px;
-    }
+.divSubmit input[type="submit"] {
+    width: 150px;
+    padding: 10px;
+}
+
+.divUpload {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 label {
     font-weight: bold;
-    margin-right: 10px; /* Distância entre o label e o input */
-    text-align: right; /* Alinha os labels à direita */
-    width: 100px; /* Define uma largura fixa para os labels para alinhá-los */
+    margin-right: 10px;
+    text-align: right;
+    width: 100px;
 }
 
-
-
 input {
-    width: 300px; /* Definindo o tamanho fixo para todos os inputs */
+    width: 300px;
     height: 35px;
     padding: 5px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: block; /* Faz com que os inputs sejam blocos e ocupem toda a largura */
-    text-align: center; /* Centraliza o texto dentro dos inputs */
+    display: block;
+    text-align: center;
 }
 
-
-input[type="text"]:hover{
+input[type="text"]:hover {
     border-color: #0056b3;
     cursor: pointer;
 }
-
 
 input[type="submit"] {
     width: 300px;
