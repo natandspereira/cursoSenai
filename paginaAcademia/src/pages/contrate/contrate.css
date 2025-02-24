@@ -1,0 +1,145 @@
+/* CONFIGURAÇÕES GLOBAIS E/OU RESET DA PÁGINA */
+* {
+    padding: 0;  /* Remove o preenchimento padrão de todos os elementos */
+    margin: 0;   /* Remove a margem padrão de todos os elementos */
+    box-sizing: border-box; /* Define que o tamanho dos elementos inclui bordas e preenchimento (padding) */
+}
+/* CONFIGURAÇÕES GLOBAIS E/OU RESET DA PÁGINA */
+
+/* CONFIGURAÇÃO DO BODY */
+body {
+    display: grid;  /* Define o body como um grid (layout de grade) */
+    justify-content: center;  /* Centraliza o conteúdo horizontalmente */
+    align-items: center;  /* Centraliza o conteúdo verticalmente */
+    height: 100vh;  /* Define a altura do body como 100% da altura da tela */
+    background-image: url('../../img/backForm.png');  /* Define uma imagem de fundo para o body */
+    background-size: cover;  /* Faz com que a imagem de fundo cubra toda a tela */
+    background-position: center;  /* Posiciona a imagem de fundo no centro da tela */
+}
+
+body::before {
+    content: '';  /* Cria um elemento antes do conteúdo do body */
+    position: absolute;  /* Posiciona esse elemento de forma absoluta */
+    top: 0;  /* Posiciona no topo da tela */
+    left: 0;  /* Posiciona à esquerda da tela */
+    right: 0;  /* Posiciona à direita da tela */
+    bottom: 0;  /* Posiciona na parte inferior da tela */
+    background: rgba(0, 0, 0, 0.4);  /* Aplica uma cor de fundo preta semi-transparente */
+    z-index: -1;  /* Coloca o elemento atrás do conteúdo do body */
+}
+/* BODY */
+
+/* CONFIGURAÇÃO DO FORMULÁRIO */
+form {
+    display: grid;  /* Define o formulário como um grid */
+    justify-content: center;  /* Centraliza os itens do formulário horizontalmente */
+    align-items: center;  /* Centraliza os itens do formulário verticalmente */
+}
+/* CONFIGURAÇÃO DO FORMULÁRIO */
+
+/* CONFIGURAÇÃO DO TÍTULO DO FORMULÁRIO */
+h1 {
+    text-align: center;  /* Centraliza o texto do título */
+    margin-top: 30px;  /* Adiciona uma margem superior de 30px */
+    font-weight: bold;  /* Define a fonte como negrito */
+    font-size: 2.5rem;  /* Define o tamanho da fonte como 2.5 vezes o tamanho da fonte base */
+    color: #ffffff;  /* Define a cor do texto como branca */
+}
+/* CONFIGURAÇÃO DO TÍTULO DO FORMULÁRIO */
+
+/* CONFIGURAÇÃO DA DIV CONTAINER */
+.divContainer {
+    display: grid;  /* Define a divContainer como um grid */
+    gap: 20px;  /* Adiciona um espaço de 20px entre os elementos dentro da div */
+    justify-items: center;  /* Centraliza os itens dentro da div horizontalmente */
+}
+/* CONFIGURAÇÃO DA DIV CONTAINER */
+
+/* CONFIGURAÇÃO DOS INPUTS */
+input {
+    width: 350px;  /* Define a largura dos inputs como 350px */
+    height: 40px;  /* Define a altura dos inputs como 40px */
+    border: none;  /* Remove as bordas dos inputs */
+    border-radius: 5px;  /* Define bordas arredondadas nos inputs */
+    padding: 10px;  /* Adiciona preenchimento interno de 10px nos inputs */
+    text-align: center;  /* Centraliza o texto dentro dos inputs */
+    outline: none;  /* Remove o contorno ao focar nos inputs */
+    margin: 20px 20px 0 0;  /* Adiciona uma margem superior de 20px e margem direita de 20px */
+}
+
+input::placeholder {
+    text-align: center;  /* Centraliza o texto do placeholder */
+    font-weight: bold;  /* Define a fonte do placeholder como negrito */
+    font-size: 1.1rem;  /* Define o tamanho da fonte do placeholder como 1.1 vezes o tamanho base */
+    opacity: 0.5;  /* Define a opacidade do placeholder para 50% */
+}
+
+input[name="cidade"],
+input[name="estado"],
+input[name="cep"] {
+    width: 200px;  /* Define a largura dos campos de cidade, estado e CEP como 200px */
+}
+/* CONFIGURAÇÃO DOS INPUTS */
+
+/* CONFIGURAÇÃO DO SPAN CIDADE/ESTADO/CEP */
+.cidadeEstadoCep {
+    display: flex;  /* Define a classe cidadeEstadoCep como flexbox */
+    gap: 10px;  /* Define um espaço de 10px entre os itens dentro da classe */
+    justify-content: center;  /* Centraliza os itens dentro da classe */
+}
+/* CONFIGURAÇÃO DO SPAN CIDADE/ESTADO/CEP */
+
+/* CONFIGURAÇÃO DA DIV PLANO PAGAMENTO */
+.planoPagamento {
+    display: flex;  /* Define a classe planoPagamento como flexbox */
+    justify-content: space-between;  /* Distribui os itens com espaço entre eles */
+    gap: 20px;  /* Adiciona um espaço de 20px entre os itens dentro da classe */
+}
+
+.escolhaUmPlano,
+.formasDePagamento {
+    width: 270px;  /* Define a largura dos campos de plano e pagamento como 270px */
+    padding: 15px;  /* Adiciona preenchimento interno de 15px */
+    font-weight: bold;  /* Define a fonte como negrito */
+    border-radius: 5px;  /* Define bordas arredondadas */
+    text-align: center;  /* Centraliza o texto dentro dos campos */
+    outline: none;  /* Remove o contorno dos campos ao focar neles */
+    cursor: pointer;  /* Muda o cursor para indicar que é um campo clicável */
+}
+/* CONFIGURAÇÃO DA DIV PLANO PAGAMENTO */
+
+/* CONFIGURAÇÃO DO INPUT UPLOAD */
+.divUpload {
+    display: flex;  /* Define a divUpload como flexbox */
+    justify-content: center;  /* Centraliza o conteúdo dentro da divUpload */
+}
+
+input[type="file"] {
+    margin-left: 20%;  /* Adiciona uma margem à esquerda de 20% */
+    height: 60px;  /* Define a altura do campo de upload de arquivo como 60px */
+    font-size: 1.2rem;  /* Define o tamanho da fonte como 1.2rem */
+    color: white;  /* Define a cor do texto como branca */
+}
+/* CONFIGURAÇÃO DO INPUT UPLOAD */
+
+/* CONFIGURAÇÃO DA DIV SUBMIT */
+.divSubmit {
+    display: flex;  /* Define a divSubmit como flexbox */
+    justify-content: center;  /* Centraliza o conteúdo dentro da divSubmit */
+    margin-top: 20px;  /* Adiciona uma margem superior de 20px */
+}
+
+input[type="submit"] {
+    padding: 15px 30px;  /* Define o preenchimento interno do botão de envio como 15px vertical e 30px horizontal */
+    font-size: 1.2rem;  /* Define o tamanho da fonte como 1.2rem */
+    background-color: white;  /* Define o fundo do botão como branco */
+    border: none;  /* Remove a borda do botão */
+    border-radius: 5px;  /* Define bordas arredondadas para o botão */
+    width: auto;  /* Define a largura do botão como automática */
+}
+
+input[type="submit"]:hover {
+    transition: 0.8s;  /* Aplica uma transição suave de 0.8 segundos */
+    transform: scale(1.2);  /* Aumenta o tamanho do botão em 20% ao passar o mouse sobre ele */
+}
+/* CONFIGURAÇÃO DA DIV SUBMIT */
