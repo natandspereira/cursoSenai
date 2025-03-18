@@ -4,11 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- LINK BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- SCRIPT BOOTSTRAP -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
     <!-- LINK CSS -->
     <link rel="stylesheet" href="../assets/css/invitation.css">
     <link rel="stylesheet" href="../assets/css/btnToogle.css">
     <!-- LINK ICON GOOGLE -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=account_circle,calendar_month,format_paint,toggle_on" />
+    
     <title>Page Invitation</title>
 </head>
 
@@ -16,7 +21,7 @@
     <?php include './upload.php'; ?>
     <div class="container">
         <aside>
-            text
+            <img src="../assets/img/Brand.svg" alt="brand">
         </aside>
         <form action="form.php" method="post" enctype="multipart/form-data">
             <h4>Crie seu convite</h4>
@@ -32,18 +37,24 @@
                 <div class="date">
                     <span>
                         <label for="start">Inicio</label>
-                        <input type="text" name="start" placeholder="DD/MM/AAAA">
+                        <input type="date" name="start" placeholder="DD/MM/AAAA">
                     </span>
                     <span>
                         <label for="end">Fim</label>
-                        <input type="text" name="end" placeholder="DD/MM/AAAA">
+                        <input type="date" name="end" placeholder="DD/MM/AAAA">
                     </span>
                 </div>
                 <!-- TYPELOCATION -->
                 <div class="typeLocation">
                     <span>
                         <label for="type">Tipo</label>
-                        <input type="text" name="tyoe">
+                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                            <label class="btn btn-outline-light" for="btnradio1">Presencial</label>
+
+                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                            <label class="btn btn-outline-light" for="btnradio2">Online</label>
+                        </div>
                     </span>
                     <span>
                         <label for="location">Local</label>
@@ -56,7 +67,7 @@
                     <textarea
                         name="descriptionLabel" id="descriptionLabel"
                         rows="5" cols="50">
-                            Escreva sobre os detalhes do evento
+                            
                         </textarea>
                 </div>
                 <!-- CUSTOMIZATION     -->
@@ -67,9 +78,10 @@
                     </span>
                 </div>
                 <!-- COLOR -->
-                <div class="color">
-                    <input type="color" name="color">
+                <div class="colorContainer">
+                    <input type="color" name="color" id="color" value="#ffffff">
                 </div>
+                
                 <!-- EVENT -->
                 <div class="event">
                     <p class="titleSize">Tema do Evento</p>
@@ -117,19 +129,10 @@
                         </div>
                     </span>
                 </div>
-                <!-- CLARO -->
-                <div class="claro">
-                    <div class="btnToogle">
-                        <label class="estilo titleSize">Estilo</label>
-                        <span class="material-symbols-outlined">
-                            toggle_on
-                        </span>
-                    </div>
-
-                    <div class="upload">
+                <!-- UPLOAD -->
+               <div class="upload">
                         <label class="titleSize" for="fotoDeCapa">Foto de capa</label>
                         <input type="file" name="fotoDeCapa" id="fotoDeCapa" accept="image/*">
-                    </div>
                 </div>
                 <!-- CONTATOS -->
                 <div class="contatos">

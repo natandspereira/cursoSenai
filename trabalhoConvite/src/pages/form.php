@@ -1,58 +1,72 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Captura os valores dos campos de texto, data e cor
+    $title = $_POST["title"] ?? "";
+    $start = $_POST["start"] ?? "";
+    $end = $_POST["end"] ?? "";
+    $location = $_POST["location"] ?? "";
+    $description = $_POST["descriptionLabel"] ?? "";
+    $color = $_POST["color"] ?? "";
+    $name = $_POST["name"] ?? "";
+    $email = $_POST["email"] ?? "";
+    $telefone = $_POST["telefone"] ?? "";
 
-    // 1. Processamento do upload de arquivo
-    if (isset($_FILES['fotoDeCapa'])) {
-        // O diretório onde o arquivo será armazenado
-        $diretorioDestino = "uploads/";
+    // Captura o valor do botão de rádio selecionado
+    $tipoEvento = $_POST["btnradio"] ?? "Presencial";
 
-        // Nome do arquivo enviado
-        $nomeArquivo = $_FILES['fotoDeCapa']['name'];
+    // Captura os valores dos checkboxes
+    $termo = isset($_POST["termo"]) ? "Aceito" : "Não aceito";
+    $promocoesEmail = isset($_POST["checkbox"][0]) ? "Sim" : "Não";
+    $promocoesSMS = isset($_POST["checkbox"][1]) ? "Sim" : "Não";
 
-        // Caminho completo para o arquivo de destino
-        $caminhoDestino = $diretorioDestino . basename($nomeArquivo);
-
-        // Verificar se o arquivo foi enviado com sucesso
-        if (move_uploaded_file($_FILES['fotoDeCapa']['tmp_name'], $caminhoDestino)) {
-            echo "O arquivo foi enviado com sucesso!<br>";
+    // Captura o arquivo enviado
+    if (isset($_FILES["fotoDeCapa"]) && $_FILES["fotoDeCapa"]["error"] == 0) {
+        $fotoNome = $_FILES["fotoDeCapa"]["name"];
+        $fotoTemp = $_FILES["fotoDeCapa"]["tmp_name"];
+        $destino = "uploads/" . $fotoNome; // Define o destino do upload
+        
+        // Move o arquivo para a pasta de destino
+        if (move_uploaded_file($fotoTemp, $destino)) {
+            $fotoStatus = "Upload realizado com sucesso!";
         } else {
-            echo "Houve um erro no envio do arquivo.<br>";
+            $fotoStatus = "Erro no upload da foto.";
         }
-
-        // Exibindo a foto de capa
-        if ($_FILES['fotoDeCapa']['error'] == 0) {
-            echo "<p><strong>Foto de Capa:</strong> " . htmlspecialchars($nomeArquivo) . "</p>";
-        } else {
-            echo "<p><strong>Erro ao carregar foto de capa.</strong></p>";
-        }
+    } else {
+        $fotoStatus = "Nenhuma foto enviada.";
     }
 
-    // 2. Exibindo os valores dos inputs
-    echo "<h2>Dados do Evento</h2>";
-    echo "<p><strong>Título:</strong> " . htmlspecialchars($_POST['title']) . "</p>";
-    echo "<p><strong>Início:</strong> " . htmlspecialchars($_POST['start']) . "</p>";
-    echo "<p><strong>Fim:</strong> " . htmlspecialchars($_POST['end']) . "</p>";
-    echo "<p><strong>Tipo:</strong> " . htmlspecialchars($_POST['type']) . "</p>";
-    echo "<p><strong>Local:</strong> " . htmlspecialchars($_POST['location']) . "</p>";
-    echo "<p><strong>Descrição:</strong> " . htmlspecialchars($_POST['descriptionLabel']) . "</p>";
-    echo "<p><strong>Cor selecionada:</strong> " . htmlspecialchars($_POST['color']) . "</p>";
-
-    // 3. Exibindo os temas selecionados
-    $temas = ["aniversario", "infantil", "formatura", "casamento", "chaDeBebe", "chaDePanela", "carnaval", "pascoa", "saoJoao", "haloween", "natal", "outro"];
-    foreach ($temas as $tema) {
-        if (isset($_POST[$tema])) {
-            echo "<p><strong>Tema selecionado:</strong> " . ucfirst($tema) . "</p>";
-        }
-    }
-
-    // 4. Exibindo os dados de contato
-    echo "<p><strong>Nome:</strong> " . htmlspecialchars($_POST['name']) . "</p>";
-    echo "<p><strong>Email:</strong> " . htmlspecialchars($_POST['email']) . "</p>";
-    echo "<p><strong>Telefone:</strong> " . htmlspecialchars($_POST['telefone']) . "</p>";
-
-    // 5. Exibindo os checkboxes (Termos e condições)
-    echo "<p><strong>Aceitou os Termos e Condições:</strong> " . (isset($_POST['termo']) ? 'Sim' : 'Não') . "</p>";
-    echo "<p><strong>Aceitou receber atualizações e promoções por e-mail:</strong> " . (isset($_POST['emailPromo']) ? 'Sim' : 'Não') . "</p>";
-    echo "<p><strong>Aceitou receber atualizações e promoções por SMS:</strong> " . (isset($_POST['smsPromo']) ? 'Sim' : 'Não') . "</p>";
+   
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados Capturados</title>
+    <link rel="stylesheet" href="../assets/css/form.css">
+</head>
+<body>
+<div class="container">
+        <h2>Dados Capturados</h2>
+        <div class="data">
+            <?php 
+            echo "<p><span>Título:</span> $title</p>";
+            echo "<p><span>Início:</span> $start</p>";
+            echo "<p><span>Fim:</span> $end</p>";
+            echo "<p><span>Local:</span> $location</p>";
+            echo "<p><span>Descrição:</span> $description</p>";
+            echo "<p><span>Cor escolhida:</span> $color</p>";
+            echo "<p><span>Nome:</span> $name</p>";
+            echo "<p><span>Email:</span> $email</p>";
+            echo "<p><span>Telefone:</span> $telefone</p>";
+            echo "<p><span>Tipo de evento:</span> $tipoEvento</p>";
+            echo "<p><span>Aceitou os Termos?</span> $termo</p>";
+            echo "<p><span>Aceita promoções por Email?</span> $promocoesEmail</p>";
+            echo "<p><span>Aceita promoções por SMS?</span> $promocoesSMS</p>";
+            echo "<p><span>Status do Upload:</span> $fotoStatus</p>";
+            ?>
+        </div>
+    </div>
+</body>
+</html>

@@ -12,7 +12,9 @@
         <span>
             <input type="text" placeholder="Login">
             <input type="text" placeholder="Password">
-            <input type="submit" value="Login">
+            <a href="./pages/invitation.php">
+                <input type="submit" value="Login">
+            </a>
         </span>
         
     </div>

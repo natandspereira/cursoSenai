@@ -32,6 +32,25 @@ body, html {
     
 }
 
+.container aside{
+    position: fixed; 
+    top: 0;
+    left: 0; 
+    width: 20%; 
+    height: 100vh; 
+    background: #000000;
+    padding: 20px; 
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+}
+
+.container aside img{
+    width: 110%; 
+    height: auto; 
+    margin-bottom: 20px; 
+}
+
 .container h4 {
     margin: 20px 0 0 0;
     font-size: 1.5rem;
@@ -69,17 +88,22 @@ form .inputForm {
     width: 400px;
 }
 
-.color {
-    display: grid;
-    margin: 20px 0 0 0;
+.colorContainer{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-top: 20px;
 }
 
-.color input[type='color'] {
-    border: none;
-    width: 100px;
-    height: 100px;
+#color {
+    width: 40px;
+    height: 40px;
+    /* border: none; */
     border-radius: 50%;
+    padding: 0;
+    cursor: pointer;
     overflow: hidden;
+    /* appearance: none; */
 }
 
 /* EVENT */
@@ -112,18 +136,6 @@ form .inputForm {
     box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
 }
 
-/* CLARO */
-.claro {
-    display: flex;
-    align-items: center;
-    margin: 20px 0 0 0;
-    gap: 200px;
-}
-
-.claro .btnToogle {
-    display: grid;
-}
-
 /* UPLOAD */
 .upload {
     display: flex;
@@ -146,6 +158,9 @@ form .inputForm {
     margin-left: 10px;
 }
 /* CONTATO */
+.contatos{
+    margin: 20px 0 0 0;
+}
 .contatos .nome{
     display: grid;
 }
