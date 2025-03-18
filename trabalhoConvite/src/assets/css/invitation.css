@@ -8,70 +8,73 @@
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
     outline: none;
-} 
-/* /BODY */
-body{
+}
+
+/* BODY */
+body, html {
     background-color: #0C1A26;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-} 
+}
+.titleSize{
+    font-size: 1.2rem;
+}
 /* CONTAINER */
-.container{
+.container {
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 50px;
+    width: 100%;
+    max-width: 100%;
+    
 }
 
-.container form span{
+.container h4 {
+    margin: 20px 0 0 0;
+    font-size: 1.5rem;
+}
+
+.container form span {
     display: flex;
     align-items: center;
     justify-content: left;
     margin: 20px 0 0 0;
 }
 
-form span p{
+form span p {
     font-size: 1rem;
     margin: 0 0 0 10px;
-} 
+}
 
-form .inputForm{
+form .inputForm {
     display: grid;
     margin: 20px 0 0 0;
-} 
+}
 
-.date, .typeLocation{
-    display:flex;
+.date, .typeLocation {
+    display: flex;
     gap: 30px;
-} 
+}
 
-.date span{
+.date span, .typeLocation span {
     display: grid !important;
 }
 
-.typeLocation span{
-    display: grid !important;
-}
-
-.description{
+.description {
     display: grid;
     margin: 20px 0 0 0;
     width: 400px;
 }
 
-.color{
+.color {
     display: grid;
-}
-
-.color{
     margin: 20px 0 0 0;
-    
 }
 
-.color input[type='color']{
+.color input[type='color'] {
     border: none;
     width: 100px;
     height: 100px;
@@ -79,13 +82,131 @@ form .inputForm{
     overflow: hidden;
 }
 
+/* EVENT */
+.event {
+    margin: 20px 0 0 0;
+}
 
-form .inputForm input{
+.event span {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 20px;
+}
+
+.event span div {
+    width: 140px;
+    height: 110px;
+    border-radius: 10px;
+}
+
+/* SELECIONADO */
+.selecionado {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.selecionado:hover {
+    border: 2px solid #00f;
+    box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
+}
+
+/* CLARO */
+.claro {
+    display: flex;
+    align-items: center;
+    margin: 20px 0 0 0;
+    gap: 200px;
+}
+
+.claro .btnToogle {
+    display: grid;
+}
+
+/* UPLOAD */
+.upload {
+    display: flex;
+    flex-direction: column;
+    margin: 40px 0 0 0;
+}
+
+.upload label {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-left: 10px;
+}
+
+.upload button {
+    width: 100px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+/* CONTATO */
+.contatos .nome{
+    display: grid;
+}
+
+.contatos .emailTelefone{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.emailTelefone div{
+    display: grid;
+}
+/* TERMO */
+.termo{
+    margin: 20px 0 0 0;
+    gap: 10px;
+}
+
+.termo input[type="checkbox"] {
+    width: 20px;      
+    height: 20px;     
+    margin-right: 10px;  
+    appearance: none; 
+    border: 2px solid #333;
+    border-radius: 2px; 
+    background-color: #fff; 
+    cursor: pointer; 
+}
+
+.termo input[type="checkbox"]:checked {
+    background-color: #4CAF50; 
+    border-color: #4CAF50;     
+}
+
+
+.termo p {
+    display: flex;
+    align-items: center; 
+    margin: 0;
+}
+/* BOTÃO GERAR CONVITE */
+.btnGerarConvite{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0 0 0;
+    padding: 20px;
+}
+.btnGerarConvite button{
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+}
+
+/* FORM INPUTS */
+form .inputForm input {
     width: 400px;
     height: 40px;
     border: none;
     border-radius: 5px;
     padding: 5px;
-} 
-
-
+}
