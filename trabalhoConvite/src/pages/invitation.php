@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <?php include './upload.php'; ?>
+    <!-- <?php include './upload.php'; ?> -->
     <div class="container">
         <aside>
             <img src="../assets/img/Brand.svg" alt="brand">
@@ -84,51 +84,74 @@
                 
                 <!-- EVENT -->
                 <div class="event">
-                    <p class="titleSize">Tema do Evento</p>
-                    <span>
-                        <div class="aniversario selecionado">
-                            <img src="../assets/img/aniversario.png" alt="aniversario">
-                        </div>
+    <p class="titleSize">Tema do Evento</p>
+    <span>
+        <label class="aniversario">
+            <input type="checkbox" class="selecionar-item" id="aniversario">
+            <img src="../assets/img/aniversario.png" alt="aniversario">
+        </label>
 
-                        <div class="infantil selecionado">
-                            <img src="../assets/img/infantil.svg" alt="infantil">
-                        </div>
-                        <div class="formatura selecionado">
-                            <img src="../assets/img/formatura.svg" alt="formatura">
-                        </div>
-                        <div class="casamento selecionado">
-                            <img src="../assets/img/casamento.svg" alt="casamento">
-                        </div>
-                    </span>
-                    <span>
-                        <div class="chaDeBebe selecionado">
-                            <img src="../assets/img/chaDeBebe.svg" alt="chaDeBebe">
-                        </div>
-                        <div class="chaDePanela selecionado">
-                            <img src="../assets/img/chaDePanela.png" alt="chaDePanela">
-                        </div>
-                        <div class="carnaval selecionado">
-                            <img src="../assets/img/carnaval.svg" alt="carnaval">
-                        </div>
-                        <div class="pascoa selecionado">
-                            <img src="../assets/img/pascoa.svg" alt="pascoa">
-                        </div>
-                    </span>
-                    <span>
-                        <div class="saoJoao selecionado">
-                            <img src="../assets/img/saoJoao.svg" alt="saoJoao">
-                        </div>
-                        <div class="haloween selecionado">
-                            <img src="../assets/img/haloween.svg" alt="haloween">
-                        </div>
-                        <div class="natal selecionado">
-                            <img src="../assets/img/natal.svg" alt="natal">
-                        </div>
-                        <div class="outro selecionado">
-                            <img src="../assets/img/outro.png" alt="outro">
-                        </div>
-                    </span>
-                </div>
+        <label class="infantil">
+            <input type="checkbox" class="selecionar-item" id="infantil">
+            <img src="../assets/img/infantil.svg" alt="infantil">
+        </label>
+
+        <label class="formatura">
+            <input type="checkbox" class="selecionar-item" id="formatura">
+            <img src="../assets/img/formatura.svg" alt="formatura">
+        </label>
+
+        <label class="casamento">
+            <input type="checkbox" class="selecionar-item" id="casamento">
+            <img src="../assets/img/casamento.svg" alt="casamento">
+        </label>
+    </span>
+
+    <span>
+        <label class="chaDeBebe">
+            <input type="checkbox" class="selecionar-item" id="chaDeBebe">
+            <img src="../assets/img/chaDeBebe.svg" alt="chaDeBebe">
+        </label>
+
+        <label class="chaDePanela">
+            <input type="checkbox" class="selecionar-item" id="chaDePanela">
+            <img src="../assets/img/chaDePanela.png" alt="chaDePanela">
+        </label>
+
+        <label class="carnaval">
+            <input type="checkbox" class="selecionar-item" id="carnaval">
+            <img src="../assets/img/carnaval.svg" alt="carnaval">
+        </label>
+
+        <label class="pascoa">
+            <input type="checkbox" class="selecionar-item" id="pascoa">
+            <img src="../assets/img/pascoa.svg" alt="pascoa">
+        </label>
+    </span>
+
+    <span>
+        <label class="saoJoao">
+            <input type="checkbox" class="selecionar-item" id="saoJoao">
+            <img src="../assets/img/saoJoao.svg" alt="saoJoao">
+        </label>
+
+        <label class="haloween">
+            <input type="checkbox" class="selecionar-item" id="haloween">
+            <img src="../assets/img/haloween.svg" alt="haloween">
+        </label>
+
+        <label class="natal">
+            <input type="checkbox" class="selecionar-item" id="natal">
+            <img src="../assets/img/natal.svg" alt="natal">
+        </label>
+
+        <label class="outro">
+            <input type="checkbox" class="selecionar-item" id="outro">
+            <img src="../assets/img/outro.png" alt="outro">
+        </label>
+    </span>
+</div>
+
                 <!-- UPLOAD -->
                <div class="upload">
                         <label class="titleSize" for="fotoDeCapa">Foto de capa</label>

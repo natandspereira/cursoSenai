@@ -107,22 +107,36 @@ form .inputForm {
 }
 
 /* EVENT */
-.event {
-    margin: 20px 0 0 0;
+/* Esconde os checkboxes, mas mantém sua funcionalidade */
+.selecionar-item {
+    display: none;
 }
 
-.event span {
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    gap: 20px;
+/* Estilo geral para as labels */
+.event label {
+    cursor: pointer;
+    display: inline-block;
+    margin: 10px;
+    transition: transform 0.2s ease-in-out;
 }
 
-.event span div {
-    width: 140px;
-    height: 110px;
-    border-radius: 10px;
+/* Efeito visual para o item quando o checkbox for selecionado */
+.event input:checked + img {
+    border: 2px solid #007BFF;  /* Borda azul para indicar seleção */
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); /* Sombra azul */
+    transform: scale(1.1); /* Aumenta o tamanho do item */
 }
+
+/* Estilo de hover para melhorar a interatividade */
+.event label:hover {
+    transform: scale(1.05);
+}
+
+/* Estilo de transição para o efeito de hover e seleção */
+.event label img {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
+}
+
 
 /* SELECIONADO */
 .selecionado {
