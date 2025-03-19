@@ -57,13 +57,13 @@
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel"> <!-- Início do carrossel de imagens -->
         <div class="carousel-inner"> <!-- Conteúdo do carrossel -->
             <div class="carousel-item active"> <!-- Primeira imagem ativa -->
-                <img src="./img/img1.jpg" class="d-block w-100" alt="img1"> <!-- Imagem 1 -->
+                <img src="../public/img/img1.jpg" class="d-block w-100" alt="img1"> <!-- Imagem 1 -->
             </div>
             <div class="carousel-item"> <!-- Segunda imagem -->
-                <img src="./img/img2.jpg" class="d-block w-100" alt="img2"> <!-- Imagem 2 -->
+                <img src="../public/img/img2.jpg" class="d-block w-100" alt="img2"> <!-- Imagem 2 -->
             </div>
             <div class="carousel-item"> <!-- Terceira imagem -->
-                <img src="./img/img3.jpg" class="d-block w-100" alt="img3"> <!-- Imagem 3 -->
+                <img src="../public/img/img3.jpg" class="d-block w-100" alt="img3"> <!-- Imagem 3 -->
             </div>
         </div>
     </div>
