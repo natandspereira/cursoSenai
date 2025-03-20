@@ -19,6 +19,7 @@
 .header{
     background-color: var(--black);
     padding: 10px;
+<<<<<<< HEAD
 } 
 
 .header .ul .li .a{
@@ -80,5 +81,18 @@
 }
 
 
+=======
+}
+
+header ul li a{
+    color: var(--lightGray) !important;
+}
+
+header ul li a:hover{
+    color: var(--darkGray) !important;
+}
+
+/* MAIN */
+>>>>>>> 037be0f3d1bea365e969d929313e4081e18c7035
 
 
