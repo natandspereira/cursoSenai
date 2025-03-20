@@ -18,4 +18,17 @@
 /* HEADER */
 header{
     background-color: var(--black);
+    padding: 10px;
 }
+
+header ul li a{
+    color: var(--lightGray) !important;
+}
+
+header ul li a:hover{
+    color: var(--darkGray) !important;
+}
+
+/* MAIN */
+
+
