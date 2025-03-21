@@ -6,6 +6,7 @@
     margin: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
+    outline: none;
 } 
 /* ROOT */
 :root{
@@ -16,13 +17,13 @@
 } 
 
 /* HEADER */
-.header{
+header{
     background-color: var(--black);
     padding: 10px;
     text-align: center;
 } 
 
-.header .h5{
+header h5{
     color: var(--lightGray);
     font-weight: bold;
     font-size: 1.5rem;
@@ -68,8 +69,9 @@
     flex-direction: column;
 } 
 
-.name .span{
-  font-size: 1.3rem;  
+.name span{
+  font-size: 1.3rem; 
+  font-weight: bold; 
 } 
 
 .name p{
@@ -77,21 +79,27 @@
     text-align: center;
 } 
 /* BTN CV */
-.btnCV a{
+.btnDocuments{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 30px 0 0 0;
-    text-decoration: none;
-    padding: 15px;
+    flex-direction: row;
+    margin: 20px 0 0 0;
 }
 
-.btnCV a button{
+.btnDocuments a{
+    margin: 30px 0 0 0;
+    text-decoration: none;
+    width: 135px;
+}
+
+.btnDocuments a button{
     padding: 10px;
     border: none;
     border-radius: 5px;
     background-color: var(--darkGray);
     color: var(--lightGray);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 /* TECNOLOGIAS */
 .technology{
@@ -135,12 +143,14 @@
     color: var(--lightGray);
     padding: 10px;
     gap: 20px;
+    border-radius: 20px 20px 0 0;
 }
 
 .titleContact{
     display: flex;
     align-items: center;
     justify-content: center;
+    color: var(--lightGray);
 }
 
 .imgContact{
@@ -151,4 +161,5 @@
 
 .imgContact a img{
     width: 60px;
-}
+} 
+

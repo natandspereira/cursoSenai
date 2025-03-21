@@ -26,8 +26,8 @@
 
 <body>
 <!-- HEADER -->
-<header class="header">
-    <h5 class="h5">Natan Pereira</h5>
+<header>
+    <h5>Natan Pereira</h5>
 </header>
 
 <!-- MAIN -->
@@ -40,14 +40,19 @@
 </section>
 <!-- CONTEÚDO -->
 <section class="name">
-    <span class="span">Desenvolvedor Back End</span>
+    <span>Desenvolvedor Back End</span>
     <p>Buscando sempre novos desafios e oportunidades para crescer no mundo da tecnologia!</p>
 </section>
 <!-- BTN CV -->
-<div class="btnCV">
-    <a href="https://github.com/natandspereira/meuCurriculo/blob/main/Natan%20Pereira%20-%20Programador%20Back%20End.pdf">
-        <button>Download CV</button>
-    </a>
+<div class="btnDocuments">
+   <div class="linkDocuments">
+        <a href="https://github.com/natandspereira/meuCurriculo/blob/main/Natan%20Pereira%20-%20Programador%20Back%20End.pdf" target="_blank">
+            <button>Download CV</button>
+        </a>
+        <a href="https://github.com/natandspereira/certificadosCursos.git" target="_blank">
+            <button>Certificados</button>
+        </a>
+   </div>
 </div> 
 <!-- TECNOLOGIAS -->
  <section class="technology">
@@ -108,10 +113,7 @@
         </div>
         </div>
     </div>
-
-        
-    
- </section>
+</section>
 <!-- CONTATO -->
 <div class="contact">
     <div class="titleContact">
