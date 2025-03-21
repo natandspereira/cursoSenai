@@ -19,13 +19,17 @@
 .header{
     background-color: var(--black);
     padding: 10px;
-<<<<<<< HEAD
+    text-align: center;
 } 
 
-.header .ul .li .a{
+.header .h5{
     color: var(--lightGray);
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin: 10px 0 0 0;
 } 
-/* MAIN */
+
+/* DESCRIPTION  */
 .description{
     background-color: var(--black);
     padding: 50px;
@@ -35,9 +39,8 @@
 } 
 
 .description .ti{
-    width: 250px;
-    height: 250px;
-    background-color: var(--lightGray);
+    width: 300px;
+    height: 300px;
     z-index: 1;
     position: absolute;
     margin: 200px 0 0 0;
@@ -48,51 +51,104 @@
     justify-content: center;
 } 
 
-.content{
-    margin: 200px 0 0 0;
-    
-}
-
-.content .titleHardware{
-    width: 100vw;
+.description .ti .img-fluid{
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
 }
-.content .h5{
-    background-color: var(--darkGray);
-    padding: 10px;
-    width: 200px;
-    text-align: center;
-    border-radius: 5px;
+/* CONTEÚDO */
+.name{
+    margin: 210px 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 } 
 
-.content .hardware{
+.name .span{
+  font-size: 1.3rem;  
+} 
+
+.name p{
+    margin: 10px 0 0 0;
+    text-align: center;
+} 
+/* BTN CV */
+.btnCV a{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 30px 0 0 0;
+    text-decoration: none;
+    padding: 15px;
+}
+
+.btnCV a button{
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--darkGray);
+    color: var(--lightGray);
+}
+/* TECNOLOGIAS */
+.technology{
+    text-align: center;
+} 
+
+.technology .titleability{
+    font-weight: bold;
+    font-size: 1.5rem;
     margin: 20px 0 0 0;
 } 
 
-.content .hardware .divContentHardware{
+.iconTechnology {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.row{
+    width: 100px;
+    gap: 5px;
+}
+
+.row .tech-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+} 
+
+.row .tech-item img:hover{
+    transition: .5s;
+    transform: scale(1.2);
+}
+/* CONTATO */
+.contact{
+    background-color: var(--black);
+    margin: 20px 0 0 0;
+    color: var(--lightGray);
+    padding: 10px;
+    gap: 20px;
+}
+
+.titleContact{
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-
-=======
+.imgContact{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-header ul li a{
-    color: var(--lightGray) !important;
+.imgContact a img{
+    width: 60px;
 }
-
-header ul li a:hover{
-    color: var(--darkGray) !important;
-}
-
-/* MAIN */
->>>>>>> 037be0f3d1bea365e969d929313e4081e18c7035
-
-
