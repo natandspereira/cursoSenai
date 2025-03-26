@@ -7,29 +7,86 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
+    list-style-type: none;
 }
-
-/* HEADER */
-header .navbar{
-    background-color: #245b09 !important;
-   
-}
-
-.container-fluid{
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    flex-direction: row !important;
-}
-header .navbar a{
-    color: white !important;
+/* BODY */
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
     
+}
+
+/* MAIN H1 */
+main h1{
+    text-align: center;
+    
+}
+
+/* FORM */
+form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: white;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+    width: 500px;
+}
+form input[type='number']{
+    height: 30px;
+    border-radius: 5px;
+}
+
+form input[type=number]::-webkit-inner-spin-button{
+    appearance: none; 
+}    
+
+form input[type='submit']{
+    width: 100px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #245b09;
+    color: white;
+    border: none;
+}
+
+/* SECTION */
+section{
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+margin: 20px 0 0 0;
+box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+padding: 10px;
+border-radius: 10px;
+width: 500px;
+}
+
+/* UL */
+ul{
+    display: flex;
+    flex-direction: column;
+}
+/* UL IMG */
+ul li img{
+    height: 60px;
+    
+}
+
+.notas{
+    display: flex;
+    gap: 15px;
+    margin: 10px;
 } 
 
-.iconGoogle{
-    width: 100%;
-    font-size: 40px;
-   
-    
-} 
-
+.notasDoisCinco{
+    display: flex;
+    gap: 35px;
+    margin: 10px;
+}
