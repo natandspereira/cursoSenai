@@ -30,6 +30,13 @@ $time = api("$endpointBase?option=time");
 //faz a requisição para obter um número aleatório
 $random = api("$endpointBase?option=random");
 
+//faz a requisição para obter lista com todos os estados brasileiros
+$states = api("$endpointBase?option=states");
+
+$uf = $_GET['uf'] ?? ''; // Pega o parâmetro 'uf' da URL, se presente
+$states_search = $uf ? api("$endpointBase?option=states_search&uf=$uf") : [];
+
+
 ?>
 
 <!DOCTYPE html>
@@ -68,6 +75,21 @@ $random = api("$endpointBase?option=random");
             </span>
             </p>
         </div>
+        
+        <!-- Exibe o estado pesquisado, caso tenha sido feito uma pesquisa -->
+        <?php 
+            if (!empty($states_search['data'])) {
+                echo '<ul>';
+                foreach ($states_search['data'] as $state) {
+                    echo '<li>' . htmlspecialchars($state) . '</li>';
+                }
+                echo '</ul>';
+            } else {
+                echo '<p>Estado não encontrado ou erro ao realizar a pesquisa</p>';
+            }
+        ?>
+        
+          
     </div>
 </body>
 </html>
