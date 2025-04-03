@@ -74,10 +74,4 @@ git clone https://github.com/seu-usuario/seu-repositorio.git
 - HTML/CSS
 - cURL (para consumo da API)
 
-## 📄 Licença
-Este projeto está sob a licença MIT. Sinta-se à vontade para usá-lo e modificá-lo conforme necessário!
-
----
-
-✉️ Caso tenha dúvidas ou sugestões, entre em contato!
 
