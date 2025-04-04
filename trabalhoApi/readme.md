@@ -133,11 +133,7 @@ $estado = apiRequest('http://localhost/trabalhoApi/api/index.php?option=states_s
 print_r($estado);
 ```
 
-## Contribuição
-Contribuições são bem-vindas! Para sugerir melhorias, abra uma issue ou faça um pull request.
 
-## Licença
-Este projeto está sob a licença MIT. Para mais detalhes, consulte o arquivo `LICENSE`.
 
 
 
