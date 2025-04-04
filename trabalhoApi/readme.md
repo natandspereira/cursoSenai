@@ -3,7 +3,7 @@
 Este repositório contém uma API simples desenvolvida em PHP que fornece informações sobre estados brasileiros, gera números aleatórios e exibe o status e a data/hora do servidor.
 
 ## Tecnologias Utilizadas
-- PHP 7+
+- PHP
 - JSON
 - cURL
 - Apache ou outro servidor web
