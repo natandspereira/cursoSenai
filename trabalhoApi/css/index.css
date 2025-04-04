@@ -29,7 +29,7 @@ body{
     border-radius: 10px;
     padding: 20px;
     width: 400px;
-    height: 250px;
+    height: 400px;
 }
 
 .title{
@@ -40,7 +40,7 @@ body{
 
 .dateApi{
    display: flex;
-   align-items: center;
+   align-items: left;
    justify-content: center;
    flex-direction: column;
    margin: 10px 0;
@@ -49,4 +49,18 @@ body{
 .dateApi p{
     font-weight: bold;
 } 
+/* FORMULARIO */
+label{
+    font-weight: bold;
+}
 
+input[type='text']{
+    height: 25px;
+    width: 100px;
+}
+
+input[type='submit']{
+    margin: 10px 0 0 0;
+    padding: 5px;
+    text-transform: uppercase;
+ }

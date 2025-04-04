@@ -1,96 +1,126 @@
 <?php 
-//função para fazer requisição a API
-function api($url){
-    //iniciar sessão curl com a url fornecida
+// Função para fazer requisição à API usando cURL
+function api($url) {
+    // Inicializa uma sessão cURL com a URL fornecida
     $ch = curl_init($url);
-
-    //retorna o resultado da requisição como string
+    
+    // Define a opção para retornar o resultado como string ao invés de imprimir diretamente
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-    //defini o cebeçalho HTTP da requisição como JSON
+    
+    // Define o cabeçalho da requisição como JSON
     curl_setopt($ch, CURLOPT_HTTPHEADER, ["Content-Type: application/json"]);
-
-    //executa a requisição e armazena a resposta
+    
+    // Executa a requisição cURL e armazena a resposta
     $response = curl_exec($ch);
 
-    curl_close($ch); //fecha a conexão curl para liberar recursos
+    // Verifica se ocorreu algum erro na requisição
+    if ($response === false) {
+        return ['error' => curl_error($ch)]; // Retorna o erro
+    }
 
-    //converte a resposta JSON em um array
-    return json_decode($response, true);
-} 
-//define a url base da api que será utilizada
+    // Fecha a sessão cURL
+    curl_close($ch);
+
+    // Decodifica a resposta JSON para um array associativo
+    $decoded = json_decode($response, true);
+
+    // Retorna os dados decodificados ou um erro se a resposta for inválida
+    return $decoded ?? ['error' => 'Resposta inválida da API'];
+}
+
+// Define a URL base da API
 $endpointBase = 'http://localhost/trabalhoApi/api/index.php';
 
-//faz a requisição para obter o status da API
-$status = api("$endpointBase?option=status");
+// Faz as requisições iniciais para obter informações da API
+$status = api("$endpointBase?option=status"); // Obtém o status da API
+$time = api("$endpointBase?option=time"); // Obtém a data/hora da API
+$random = api("$endpointBase?option=random"); // Obtém um número aleatório da API
 
-//faz a requisição para obter data/hora do servidor
-$time = api("$endpointBase?option=time");
+// Verifica se a resposta contém erro antes de acessar os dados retornados
+$statusMessage = $status['message'] ?? 'Erro ao obter status';
+$datetime = $time['data']['datetime'] ?? 'Erro ao obter data/hora';
+$randomNumber = $random['data']['random'] ?? 'Erro ao obter número';
 
-//faz a requisição para obter um número aleatório
-$random = api("$endpointBase?option=random");
+// Variáveis para armazenar o resultado da pesquisa por estado (UF)
+$searchedState = null;
+$ufSearched = null;
+$msgErro = null;
 
-//faz a requisição para obter lista com todos os estados brasileiros
-$states = api("$endpointBase?option=states");
+// Verifica se o usuário enviou uma busca por UF/Estado via GET
+if (!empty($_GET['uf'])) {
+    // Captura e formata o valor da UF fornecida pelo usuário
+    $uf = urlencode(trim($_GET['uf']));
+    
+    // Faz a requisição à API para buscar informações do estado
+    $states_search = api("$endpointBase?option=states_search&uf=$uf");
 
-$uf = $_GET['uf'] ?? ''; // Pega o parâmetro 'uf' da URL, se presente
-$states_search = $uf ? api("$endpointBase?option=states_search&uf=$uf") : [];
-
+    // Verifica se a resposta da API contém um estado válido
+    if (
+        isset($states_search['data'][0]['nome']) &&
+        !empty($states_search['data'][0]['nome'])
+    ) {
+        // Armazena o nome do estado encontrado
+        $searchedState = $states_search['data'][0]['nome'];
+    } else {
+        // Caso contrário, exibe uma mensagem de erro
+        $searchedState = "Estado não encontrado.";
+    }
+}
 
 ?>
 
 <!DOCTYPE html>
-<html lang="pr-BR">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- LINK CSS -->
-     <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/index.css">
     <title>API</title>
 </head>
 <body>
     <div class="container">
         <h4 class="title">Resultados</h4>
-        <!-- exibi o status da API -->
+        
+        <!-- Exibir status da API -->
         <div class="dateApi">
             <p>Status da API:
-                <span>
-                    <?=htmlspecialchars($status['message']?? 'Erro ao tentar obter status')?>
-                </span>
+                <span><?= htmlspecialchars($statusMessage) ?></span> <!-- Exibe o status da API -->
             </p>
         </div>
-        <!-- exibi data/hora retornada pela api -->
+
+        <!-- Exibir data/hora da API -->
         <div class="dateApi">
             <p>Data/Hora:
-                <span>
-                    <?=htmlspecialchars($time['data']['datetime']?? 'Erro ao tentar obter data/hora')?>
-                </span>
+                <span><?= htmlspecialchars($datetime) ?></span> <!-- Exibe a data/hora da API -->
             </p>
         </div>
-        <!-- exibi número aleatório retornado pela api -->
+
+        <!-- Exibir número aleatório da API -->
         <div class="dateApi">
-           <p>Número Aleatório:
-            <span>
-                <?=htmlspecialchars($random['data']['random']?? 'Erro ao tentar obter número')?>
-            </span>
+            <p>Número Aleatório:
+                <span><?= htmlspecialchars($randomNumber) ?></span> <!-- Exibe um número aleatório retornado pela API -->
             </p>
         </div>
-        
-        <!-- Exibe o estado pesquisado, caso tenha sido feito uma pesquisa -->
-        <?php 
-            if (!empty($states_search['data'])) {
-                echo '<ul>';
-                foreach ($states_search['data'] as $state) {
-                    echo '<li>' . htmlspecialchars($state) . '</li>';
-                }
-                echo '</ul>';
-            } else {
-                echo '<p>Estado não encontrado ou erro ao realizar a pesquisa</p>';
-            }
-        ?>
-        
-          
+
+        <!-- Formulário para busca por estado (UF) -->
+        <form method="GET">
+            <label for="uf">Digite a UF (Ex: SP, RJ, MG):</label>
+            <input type="text" id="uf" name="uf" placeholder="Ex: SP" required maxlength="2">
+            <input type="submit" value="Pesquisar">
+        </form>
+
+        <!-- Exibir resultado da pesquisa por estado -->
+        <?php if ($searchedState): ?>
+            <div class="resultado">
+                <h3>Resultado:</h3>
+                <p><strong>Estado:</strong> <?= htmlspecialchars($searchedState) ?></p>
+            </div>
+        <?php elseif ($msgErro): ?>
+            <div class="erro">
+                <p><?= htmlspecialchars($msgErro) ?></p>
+            </div>
+        <?php endif; ?>
+
     </div>
 </body>
 </html>
-
