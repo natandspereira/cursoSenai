@@ -3,10 +3,11 @@
 Este repositório contém uma API simples desenvolvida em PHP que fornece informações sobre estados brasileiros, gera números aleatórios e exibe o status e a data/hora do servidor.
 
 ## Tecnologias Utilizadas
-- PHP
+- PHP 7+
 - JSON
 - cURL
-- HTML/CSS
+- Apache ou outro servidor web
+- HTML/CSS para exibição no navegador
 
 ## Funcionalidades
 A API possui os seguintes endpoints:
@@ -62,6 +63,19 @@ Retorna uma lista com todas as unidades federativas do Brasil.
 ```bash
 GET http://localhost/trabalhoApi/api/index.php?option=states
 ```
+**Resposta:**
+```json
+{
+  "status": 200,
+  "message": "Lista dos Estados",
+  "data": [
+    { "uf": "AC", "nome": "Acre" },
+    { "uf": "AL", "nome": "Alagoas" },
+    { "uf": "AP", "nome": "Amapá" },
+    ...
+  ]
+}
+```
 
 ### 5. **Busca de Estado por UF**
 Permite buscar um estado específico informando sua sigla (UF).
@@ -90,9 +104,40 @@ git clone https://github.com/seu-usuario/seu-repositorio.git
 2. Configure um servidor local (exemplo: XAMPP, WAMP, ou um servidor Apache com suporte a PHP).
 3. Certifique-se de que o arquivo `index.php` esteja dentro do diretório acessível pelo servidor.
 4. Acesse via navegador ou utilize ferramentas como `Postman` ou `cURL` para testar os endpoints.
+5. Para exibir os resultados no navegador, abra o arquivo `index.html` na raiz do projeto.
 
+## Estrutura do Projeto
+```
+/
+|-- api/
+|   |-- index.php  # Arquivo principal da API
+|-- css/
+|   |-- index.css  # Estilos para a interface web
+|-- index.html      # Interface para interação com a API
+|-- README.md       # Documentação do projeto
+```
 
+## Exemplo de Uso no PHP com cURL
+Se desejar consumir essa API em um projeto PHP, você pode utilizar cURL:
+```php
+function apiRequest($url) {
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, ["Content-Type: application/json"]);
+    $response = curl_exec($ch);
+    curl_close($ch);
+    return json_decode($response, true);
+}
 
+$estado = apiRequest('http://localhost/trabalhoApi/api/index.php?option=states_search&uf=SP');
+print_r($estado);
+```
+
+## Contribuição
+Contribuições são bem-vindas! Para sugerir melhorias, abra uma issue ou faça um pull request.
+
+## Licença
+Este projeto está sob a licença MIT. Para mais detalhes, consulte o arquivo `LICENSE`.
 
 
 
