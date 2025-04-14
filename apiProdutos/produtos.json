@@ -1,0 +1,17 @@
+[
+    {
+        "nome": "Teclado USB",
+        "preco": "R$15.00"
+    },
+    {
+        "id": "67fd576d0ae52",
+        "nome": "mouse usb",
+        "preco": "R$20.00"
+    },
+    {
+        "id": "67fd61e46a90f",
+        "nome": "teste",
+        "preco": "R$1",
+        "quantidade": "10"
+    }
+]
