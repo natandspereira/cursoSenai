@@ -19,23 +19,28 @@ $materiais = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Materiais Cadastrados</title>
+    <!-- LINK CSS -->
+     <link rel="stylesheet" href="../../src/css/list.css">
 </head>
 <body>
-    <h2>Materiais Cadastrados</h2>
+    
 
     <form method="get">
-        <label for="order_by">Ordenar por:</label>
-        <select name="order_by" id="order_by">
-            <option value="nome" <?= ($orderBy == 'nome') ? 'selected' : '' ?>>Nome</option>
-            <option value="quantidade" <?= ($orderBy == 'quantidade') ? 'selected' : '' ?>>Quantidade</option>
-            <option value="id" <?= ($orderBy == 'id') ? 'selected' : '' ?>>ID</option>
-        </select>
+        <h2>Materiais Cadastrados</h2>
+       <div class="select">
+            <label for="order_by">Ordenar por:</label>
+                <select name="order_by" id="order_by">
+                    <option value="nome" <?= ($orderBy == 'nome') ? 'selected' : '' ?>>Nome</option>
+                    <option value="quantidade" <?= ($orderBy == 'quantidade') ? 'selected' : '' ?>>Quantidade</option>
+                    <option value="id" <?= ($orderBy == 'id') ? 'selected' : '' ?>>ID</option>
+                </select>
 
-        <label for="order_dir">Ordem:</label>
-        <select name="order_dir" id="order_dir">
-            <option value="ASC" <?= ($orderDir == 'ASC') ? 'selected' : '' ?>>Crescente</option>
-            <option value="DESC" <?= ($orderDir == 'DESC') ? 'selected' : '' ?>>Decrescente</option>
-        </select>
+            <label for="order_dir">Ordem:</label>
+                <select name="order_dir" id="order_dir">
+                    <option value="ASC" <?= ($orderDir == 'ASC') ? 'selected' : '' ?>>Crescente</option>
+                    <option value="DESC" <?= ($orderDir == 'DESC') ? 'selected' : '' ?>>Decrescente</option>
+                </select>
+       </div>
 
         <button type="submit">Aplicar Filtro</button>
     </form>
@@ -68,6 +73,10 @@ $materiais = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <?php endforeach; ?>
             </tbody>
         </table>
+        <div class="btn">
+             <button type="submit"><a href="register.php">cadastrar</a></button>
+            <button type="submit"><a href="../../index.php">voltar</a></button>
+        </div>
     <?php else: ?>
         <p>Nenhum material cadastrado.</p>
     <?php endif; ?>
