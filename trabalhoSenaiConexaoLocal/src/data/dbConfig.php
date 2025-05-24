@@ -5,9 +5,10 @@ $user = 'root';
 $password = ''; 
 
 try{
-$pdo = new PDO("mysql:host:$host;dbname:$db", $user, $password);
+$pdo = new PDO("mysql:host:$host;dbname:$db;charset=utf8", $user, $password);
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-echo "Conectado ao Banco de Dados";
+
 
 }catch(PDOException $error){
     echo "Erro ao tentar conectar ao banco de dados" . $error->getMessage();

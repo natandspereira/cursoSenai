@@ -1,5 +1,6 @@
 <?php 
-include './src/data/dbConfig.php';
+session_start();
+include './src/data/dbLogin.php';
 ?>
 
 <!DOCTYPE html>
@@ -12,13 +13,16 @@ include './src/data/dbConfig.php';
     <link rel="stylesheet" href="./src/css/index.css">
 </head>
 <body>
-    <div class="container">
+    <form action="" method="POST">
         <h2>Conexão Local</h2>
         <div class="login">
-            <input type="text" name="login" placeholder="Login">
-            <input type="password" name="password" placeholder="Password">
+            <input type="text" name="nome" placeholder="Login">
+            <input type="password" name="senha" placeholder="Password">
         </div>
-        <button>Login</button>
-    </div>
+       <div class="btnLogin">
+             <button  type="submit" id="login">Login</button>
+             <button id="createUser"><a href="./src/pages/createUser.php">criar usuário</a></button>
+       </div>
+    </form>
 </body>
 </html>
