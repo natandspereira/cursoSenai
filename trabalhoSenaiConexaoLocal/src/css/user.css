@@ -48,6 +48,10 @@ form input{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 } 
 
+.tipoDeUsuario{
+    margin-top: 10px;
+}
+
 form button{
     margin-top: 20px;
     border: none;

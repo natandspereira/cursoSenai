@@ -18,7 +18,7 @@ if($_SERVER["REQUEST_METHOD"]=== "POST"){
 
     if($usuario && password_verify($senha, $usuario['senha'])){
         $_SESSION['usuario'] = $usuario['nome'];
-         header("Location: ./src/pages/event.php");
+         header("Location: ./src/pages/dashBoard.php");
         exit;
     }else{
         $msg = "Usuário não encontrado ou senha incorreta.";

@@ -30,7 +30,16 @@ if (isset($_GET['sucesso']) && $_GET['sucesso'] == 1) {
         <input type="password" name="senha" id="senha" required>
         <label for="email">Email</label>
         <input type="email" name="email" id="email" required>
-        <button href="../data/dbUser.php">criar</button>
+        <div class="tipoDeUsuario">
+            <label for="tipoDeUsuario">Tipo de Usuario</label>
+            <select name="tipoDeUsuario" id="tipoDeUsuario" required>
+                <option value="">Selecione</option>
+                <option value="usuario">Usuário</option>
+                <option value="organizador">Organizador</option>
+            </select>
+        </div>
+        <!-- <button href="../data/dbUser.php">criar</button> -->
+        <button type="submit">criar</button>
     </form>
 </body>
 </html>

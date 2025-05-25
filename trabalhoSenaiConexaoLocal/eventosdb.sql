@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 24/05/2025 às 04:09
+-- Tempo de geração: 25/05/2025 às 21:56
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -26,8 +26,6 @@ SET time_zone = "+00:00";
 --
 -- Estrutura para tabela `comentarios`
 --
--- Criação: 23/05/2025 às 19:26
---
 
 CREATE TABLE `comentarios` (
   `comentariosID` int(11) NOT NULL,
@@ -35,20 +33,10 @@ CREATE TABLE `comentarios` (
   `eventosID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- RELACIONAMENTOS PARA TABELAS `comentarios`:
---   `usuariosID`
---       `usuarios` -> `usuariosID`
---   `eventosID`
---       `eventos` -> `eventosID`
---
-
 -- --------------------------------------------------------
 
 --
 -- Estrutura para tabela `eventos`
---
--- Criação: 23/05/2025 às 19:23
 --
 
 CREATE TABLE `eventos` (
@@ -61,18 +49,10 @@ CREATE TABLE `eventos` (
   `organizadoresID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- RELACIONAMENTOS PARA TABELAS `eventos`:
---   `organizadoresID`
---       `organizadores` -> `organizadoresID`
---
-
 -- --------------------------------------------------------
 
 --
 -- Estrutura para tabela `interacoes`
---
--- Criação: 23/05/2025 às 19:28
 --
 
 CREATE TABLE `interacoes` (
@@ -83,20 +63,10 @@ CREATE TABLE `interacoes` (
   `eventosID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- RELACIONAMENTOS PARA TABELAS `interacoes`:
---   `usuariosID`
---       `usuarios` -> `usuariosID`
---   `eventosID`
---       `eventos` -> `eventosID`
---
-
 -- --------------------------------------------------------
 
 --
 -- Estrutura para tabela `organizadores`
---
--- Criação: 23/05/2025 às 19:20
 --
 
 CREATE TABLE `organizadores` (
@@ -107,15 +77,16 @@ CREATE TABLE `organizadores` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- RELACIONAMENTOS PARA TABELAS `organizadores`:
+-- Despejando dados para a tabela `organizadores`
 --
+
+INSERT INTO `organizadores` (`organizadoresID`, `nome`, `email`, `senha`) VALUES
+(1, 'teste', 'teste@teste.com', '$2y$10$MZ.18A8TqCTV84oNPpoN8u6ZZyPRM8KAx8DkClIwX.9xjiVJBAW.q');
 
 -- --------------------------------------------------------
 
 --
 -- Estrutura para tabela `usuarios`
---
--- Criação: 23/05/2025 às 22:05
 --
 
 CREATE TABLE `usuarios` (
@@ -124,10 +95,6 @@ CREATE TABLE `usuarios` (
   `email` varchar(255) DEFAULT NULL,
   `senha` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- RELACIONAMENTOS PARA TABELAS `usuarios`:
---
 
 --
 -- Despejando dados para a tabela `usuarios`
@@ -213,7 +180,7 @@ ALTER TABLE `interacoes`
 -- AUTO_INCREMENT de tabela `organizadores`
 --
 ALTER TABLE `organizadores`
-  MODIFY `organizadoresID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `organizadoresID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
@@ -244,36 +211,6 @@ ALTER TABLE `eventos`
 ALTER TABLE `interacoes`
   ADD CONSTRAINT `interacoes_ibfk_1` FOREIGN KEY (`usuariosID`) REFERENCES `usuarios` (`usuariosID`),
   ADD CONSTRAINT `interacoes_ibfk_2` FOREIGN KEY (`eventosID`) REFERENCES `eventos` (`eventosID`);
-
-
---
--- Metadata
---
-USE `phpmyadmin`;
-
---
--- Metadata para tabela comentarios
---
-
---
--- Metadata para tabela eventos
---
-
---
--- Metadata para tabela interacoes
---
-
---
--- Metadata para tabela organizadores
---
-
---
--- Metadata para tabela usuarios
---
-
---
--- Metadata para o banco de dados eventosdb
---
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -6,14 +6,24 @@ include '../pages/createUser.php';
 $nome = trim($_POST['nome'] ?? '');
 $senha = trim($_POST['senha'] ?? '');
 $email = trim($_POST['email'] ?? '');
+$tipo = $_POST['tipoDeUsuario'] ?? '';
+
 $msg = '';
 
 //Seleciona o db
 $pdo->exec("USE $db");
 
 if($_SERVER['REQUEST_METHOD']==='POST'){
+
+if(!in_array($tipo,['usuario', 'organizador'])){
+    die("Tipo de Usuário inválido");
+}
+
+//Tabela de destino
+$tabela = $tipo === 'usuario' ? 'usuarios' : 'organizadores';
+
 //Verifica se o nome ou email já existe no db
-$stmt = $pdo->prepare("SELECT COUNT(*) FROM usuarios WHERE nome=:nome OR email=:email");
+$stmt = $pdo->prepare("SELECT COUNT(*) FROM $tabela WHERE nome=:nome OR email=:email");
 $stmt->execute([
     ':nome' => $nome,
     ':email' => $email
@@ -36,7 +46,7 @@ if(!empty($nome) && !empty($senha)){
       
 
     //declaração sql
-    $stmt = $pdo->prepare("INSERT INTO usuarios (nome, email, senha) 
+    $stmt = $pdo->prepare("INSERT INTO $tabela (nome, email, senha) 
     VALUES (:nome, :email, :senha)");
 
     try{
