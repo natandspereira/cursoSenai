@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 25/05/2025 às 21:56
+-- Tempo de geração: 27/05/2025 às 21:30
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -26,6 +26,8 @@ SET time_zone = "+00:00";
 --
 -- Estrutura para tabela `comentarios`
 --
+-- Criação: 26/05/2025 às 18:00
+--
 
 CREATE TABLE `comentarios` (
   `comentariosID` int(11) NOT NULL,
@@ -33,10 +35,20 @@ CREATE TABLE `comentarios` (
   `eventosID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- RELACIONAMENTOS PARA TABELAS `comentarios`:
+--   `usuariosID`
+--       `usuarios` -> `usuariosID`
+--   `eventosID`
+--       `eventos` -> `eventosID`
+--
+
 -- --------------------------------------------------------
 
 --
 -- Estrutura para tabela `eventos`
+--
+-- Criação: 26/05/2025 às 18:00
 --
 
 CREATE TABLE `eventos` (
@@ -49,10 +61,18 @@ CREATE TABLE `eventos` (
   `organizadoresID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- RELACIONAMENTOS PARA TABELAS `eventos`:
+--   `organizadoresID`
+--       `organizadores` -> `organizadoresID`
+--
+
 -- --------------------------------------------------------
 
 --
 -- Estrutura para tabela `interacoes`
+--
+-- Criação: 26/05/2025 às 18:00
 --
 
 CREATE TABLE `interacoes` (
@@ -63,10 +83,20 @@ CREATE TABLE `interacoes` (
   `eventosID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- RELACIONAMENTOS PARA TABELAS `interacoes`:
+--   `usuariosID`
+--       `usuarios` -> `usuariosID`
+--   `eventosID`
+--       `eventos` -> `eventosID`
+--
+
 -- --------------------------------------------------------
 
 --
 -- Estrutura para tabela `organizadores`
+--
+-- Criação: 26/05/2025 às 18:00
 --
 
 CREATE TABLE `organizadores` (
@@ -75,6 +105,10 @@ CREATE TABLE `organizadores` (
   `email` varchar(255) DEFAULT NULL,
   `senha` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- RELACIONAMENTOS PARA TABELAS `organizadores`:
+--
 
 --
 -- Despejando dados para a tabela `organizadores`
@@ -88,6 +122,8 @@ INSERT INTO `organizadores` (`organizadoresID`, `nome`, `email`, `senha`) VALUES
 --
 -- Estrutura para tabela `usuarios`
 --
+-- Criação: 26/05/2025 às 18:00
+--
 
 CREATE TABLE `usuarios` (
   `usuariosID` int(11) NOT NULL,
@@ -95,6 +131,10 @@ CREATE TABLE `usuarios` (
   `email` varchar(255) DEFAULT NULL,
   `senha` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- RELACIONAMENTOS PARA TABELAS `usuarios`:
+--
 
 --
 -- Despejando dados para a tabela `usuarios`
