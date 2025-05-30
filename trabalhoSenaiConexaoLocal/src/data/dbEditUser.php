@@ -38,7 +38,7 @@ if(!empty($nomeAlterado) && !empty($emailAlterado)){
      $stmt->execute($params);
 
       $_SESSION['usuario'] = $novoNome;
-      header("Location: dashboard.php?atualizado=1");
+      header("Location: dashboardUser.php?atualizado=1");
       exit;
 
 }

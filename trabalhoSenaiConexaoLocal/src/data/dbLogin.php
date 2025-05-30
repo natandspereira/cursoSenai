@@ -20,8 +20,20 @@ if($_SERVER["REQUEST_METHOD"]=== "POST"){
         $_SESSION['usuario'] = $usuario['nome'];
          header("Location: ./src/pages/dashBoardUser.php");
         exit;
-    }else{
-        $msg = "Usuário não encontrado ou senha incorreta.";
     }
+
+    $stmt = $pdo->prepare("SELECT * FROM organizadores WHERE nome = :nome");
+    $stmt->bindParam(':nome', $nome);
+    $stmt->execute();
+
+    $organizador = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if($organizador && password_verify($senha, $organizador['senha'])){
+        $_SESSION['usuario'] = $organizador['nome'];
+        $_SESSION['tipo'] = 'organizador';
+        header("Location: ./src/pages/dashBoardOrganizer.php");
+        exit;
+    }
+
 }
 ?>

@@ -17,20 +17,81 @@ header{
     padding: 10px;
 }
 
-header p{
+header .btnMenu{
     color: white;
+    margin-left: 60px;
 }
 
-header .logout{
+header .btnMenu i{
+    font-size: 40px;
+    cursor: pointer;
+}
+
+header p{
+    color: white;
+    margin-right: 15px;
+}
+
+/* LINHA HR*/
+.linha{
+border: none;
+border-bottom: 3px solid whitesmoke;
+box-shadow: 0px 5px 12px 1px rgba(0,0,0,0.77);
+z-index: 2;
+}
+
+/* MENU ASIDE */
+.menu{
+    background: linear-gradient(90deg, #c11714,#e0004e,#ef0e8b);
+    color: white;
+    position: fixed;
+    left: 0;
+    width: 200px;
+    height: 100vh;
+    padding: 10px;
+    border-radius: 0 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.menu i{
+    font-size: 40px;
+}
+
+.menu .eventos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 5px;
+    text-transform: uppercase;
+}
+
+.menu .senha{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 5px;
+    text-transform: uppercase;
+    margin-left: -15px;
+}
+
+.menu .logout{
     text-transform: uppercase;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
     gap: 5px;
+    margin-left: -25px;
 }
 
-header .logout a{
+.menu .logout a{
     text-decoration: none;
     color: white;
     display: flex;
@@ -38,6 +99,6 @@ header .logout a{
     justify-content: center;
 } 
 
-header .logout a span{
+.menu .logout a span{
     font-size: 2rem;
 }

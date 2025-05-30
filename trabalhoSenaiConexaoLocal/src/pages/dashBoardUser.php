@@ -14,25 +14,40 @@ if (!isset($_SESSION['usuario'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <!-- LINK ICON GOOGLE -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=logout" />
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    
     <!-- LINK CSS -->
      <link rel="stylesheet" href="../css/dashBoardUser.css">
 </head>
 <body>
+    <!-- //HEADER -->
     <header>
-        <p>Bem-vindo, <?php echo htmlspecialchars($_SESSION['usuario']); ?>!</p>
-        <div class="logout">
-            <p>Sair</p>
-            <a href="./dbLogout.php">
-                <span class="material-symbols-outlined">
-                    logout
-                </span>
-            </a>
+        <div class="btnMenu">
+            <i class="material-icons">menu</i>
         </div>
+        <p>Bem-vindo, <?php echo htmlspecialchars($_SESSION['usuario']); ?>!</p>
     </header>
-    <form action="">
-        
-    </form>
-    
+    <!-- LINHA -->
+    <hr class="linha">
+    <!-- MENU -->
+     <aside class="menu">
+        <div class="eventos">
+            <a href="event.php">
+                <i class="material-icons">event_note</i>
+            </a>
+            <p>Eventos</p>
+        </div>
+        <div class="senha">
+            <i class="material-icons">key</i>
+            <p>Senha</p>
+        </div>
+         <div class="logout">
+            <a href="./dbLogout.php">
+                  <i class="material-icons">logout</i>
+            </a>
+            <p>Sair</p>
+        </div>
+     </aside> 
 </body>
 </html>

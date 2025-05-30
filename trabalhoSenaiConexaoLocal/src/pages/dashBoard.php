@@ -1,4 +1,4 @@
-<?php 
+<!-- <?php 
 session_start();
 if (!isset($_SESSION['usuario'])) {
     // Redireciona para o login se não estiver logado
@@ -18,4 +18,4 @@ if (!isset($_SESSION['usuario'])) {
     <p>Bem-vindo, <?php echo htmlspecialchars($_SESSION['usuario']); ?>!</p>
     <a href="./dbLogout.php">Logout</a>
 </body>
-</html>
+</html> -->
