@@ -15,9 +15,7 @@ if (!isset($_SESSION['usuario'])) {
     <title>Dashboard</title>
     <!-- LINK ICON GOOGLE -->
    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    
-    <!-- LINK CSS -->
+     <!-- LINK CSS -->
      <link rel="stylesheet" href="../css/dashBoardUser.css">
 </head>
 <body>
@@ -34,19 +32,23 @@ if (!isset($_SESSION['usuario'])) {
      <aside class="menu">
         <div class="eventos">
             <a href="event.php">
-                <i class="material-icons">event_note</i>
+                <i class="material-icons" id="eventos">event_note</i>
+                <label for="eventos">Eventos</label>
             </a>
-            <p>Eventos</p>
+            
         </div>
         <div class="senha">
-            <i class="material-icons">key</i>
-            <p>Senha</p>
+            <a href="http://">
+                <i class="material-icons">key</i>
+                <label for="senha">senha</label>
+            </a>
         </div>
          <div class="logout">
             <a href="./dbLogout.php">
-                  <i class="material-icons">logout</i>
+                  <i class="material-icons" id="sair">logout</i>
+                   <label for="sair">sair</label>
             </a>
-            <p>Sair</p>
+           
         </div>
      </aside> 
 </body>

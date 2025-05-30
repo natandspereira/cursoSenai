@@ -30,7 +30,6 @@ if($_SERVER["REQUEST_METHOD"]=== "POST"){
 
     if($organizador && password_verify($senha, $organizador['senha'])){
         $_SESSION['usuario'] = $organizador['nome'];
-        $_SESSION['tipo'] = 'organizador';
         header("Location: ./src/pages/dashBoardOrganizer.php");
         exit;
     }
