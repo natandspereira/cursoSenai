@@ -11,14 +11,14 @@ body{
     overflow: hidden;
 }
 
-#createEvent{
+#contentEventUser{
     display: none;
     align-items: center !important;
     justify-content: center !important;
     height: 100vh !important;
 } 
 
-#createEvent form{
+#contentEventUser form{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -28,7 +28,7 @@ body{
     
 } 
 
-#createEvent form input{
+#contentEventUser form input{
       width: 300px;
     height: 40px;
     outline: none;
@@ -38,7 +38,34 @@ body{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 } 
 
-#createEvent form input::placeholder{
+#contentEventUser form input::placeholder{
     text-align: center;
     text-transform: uppercase;
+} 
+
+.tabela{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
+
+ table {
+    width: 70%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+}
+
+th {
+    background: #eee;
+}  
+
+tr,td{
+    text-align: center;
+}
+

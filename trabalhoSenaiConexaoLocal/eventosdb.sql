@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 27/05/2025 às 21:30
+-- Tempo de geração: 02/06/2025 às 23:03
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 --
 -- Estrutura para tabela `comentarios`
 --
--- Criação: 26/05/2025 às 18:00
+-- Criação: 23/05/2025 às 19:26
 --
 
 CREATE TABLE `comentarios` (
@@ -48,7 +48,8 @@ CREATE TABLE `comentarios` (
 --
 -- Estrutura para tabela `eventos`
 --
--- Criação: 26/05/2025 às 18:00
+-- Criação: 23/05/2025 às 19:23
+-- Última atualização: 02/06/2025 às 19:03
 --
 
 CREATE TABLE `eventos` (
@@ -67,12 +68,22 @@ CREATE TABLE `eventos` (
 --       `organizadores` -> `organizadoresID`
 --
 
+--
+-- Despejando dados para a tabela `eventos`
+--
+
+INSERT INTO `eventos` (`eventosID`, `titulo`, `descricao`, `data`, `hora`, `local`, `organizadoresID`) VALUES
+(1, 'teste', 'evento teste', '2025-06-02 00:00:00', '15:33:00', 'teste', NULL),
+(2, 'teste2', 'evento teste2', '2025-06-12 00:00:00', '15:37:00', 'teste2', NULL),
+(3, 'teste3', 'evento teste3', '2025-06-02 00:00:00', '15:58:00', 'teste3', 2),
+(4, 'teste4', 'evento teste4', '2025-06-04 00:00:00', '20:25:00', 'teste4', 2);
+
 -- --------------------------------------------------------
 
 --
 -- Estrutura para tabela `interacoes`
 --
--- Criação: 26/05/2025 às 18:00
+-- Criação: 23/05/2025 às 19:28
 --
 
 CREATE TABLE `interacoes` (
@@ -96,7 +107,7 @@ CREATE TABLE `interacoes` (
 --
 -- Estrutura para tabela `organizadores`
 --
--- Criação: 26/05/2025 às 18:00
+-- Criação: 23/05/2025 às 19:20
 --
 
 CREATE TABLE `organizadores` (
@@ -115,14 +126,15 @@ CREATE TABLE `organizadores` (
 --
 
 INSERT INTO `organizadores` (`organizadoresID`, `nome`, `email`, `senha`) VALUES
-(1, 'teste', 'teste@teste.com', '$2y$10$MZ.18A8TqCTV84oNPpoN8u6ZZyPRM8KAx8DkClIwX.9xjiVJBAW.q');
+(1, 'teste', 'teste@teste.com', '$2y$10$MZ.18A8TqCTV84oNPpoN8u6ZZyPRM8KAx8DkClIwX.9xjiVJBAW.q'),
+(2, 'admin', '', '$2y$10$pXsAgBZ.VvpKK.TvLPvtUeqiHTMyLRtL6ztSXtJlenAcS44K8bhZC');
 
 -- --------------------------------------------------------
 
 --
 -- Estrutura para tabela `usuarios`
 --
--- Criação: 26/05/2025 às 18:00
+-- Criação: 23/05/2025 às 22:05
 --
 
 CREATE TABLE `usuarios` (
@@ -151,7 +163,7 @@ INSERT INTO `usuarios` (`usuariosID`, `nome`, `email`, `senha`) VALUES
 (21, 'daniel', 'daniel@teste.com', '$2y$10$1eVRwykM07qTAMrr/54TauPb7zcut.4xle6eTUQf0PwwjKTrPV7AO'),
 (22, 'matheus', 'matheus@teste.com', '$2y$10$A.ZgItgDGx1FnldGmiIa3.5Q7XlaOqMeuKnzKxkAm17SbuNmj/.Ve'),
 (23, 'fulano', 'fulano@teste.com', '$2y$10$xyFgX66CLftmCjr74dHQr.1J0Vzp55nr.s8QTa1CwepKRHMOEHSI6'),
-(24, 'abc', 'abc@teste.com', '$2y$10$Rs6PAQ/FIMOa.sKpOs896.sPPIhxinNU03mB/QygPKm9u4QxOzCT.');
+(24, 'abc', '', '$2y$10$s3m46EuIaHjIY6Y4m6VDS.bUlvjysqHLSsp5Vzwr.kHdloSPgklMO');
 
 --
 -- Índices para tabelas despejadas
@@ -208,7 +220,7 @@ ALTER TABLE `comentarios`
 -- AUTO_INCREMENT de tabela `eventos`
 --
 ALTER TABLE `eventos`
-  MODIFY `eventosID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `eventosID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `interacoes`
@@ -220,7 +232,7 @@ ALTER TABLE `interacoes`
 -- AUTO_INCREMENT de tabela `organizadores`
 --
 ALTER TABLE `organizadores`
-  MODIFY `organizadoresID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `organizadoresID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`

@@ -1,46 +1,67 @@
-<?php 
-include './dbConfig.php';
+<?php
 
-$nomeUsuario = $_SESSION['usuario'];
-$tabela = $tipo === 'usuario' ? 'usuarios' : 'organizadores';
-
-$stmt = $pdo->prepare("SELECT * FROM $tipo WHERE nome = :nome");
-$stmt->execute([':nome'=>$nomeUsuario]);
-$usuario = $stmt->fetch(PDO::FETCH_ASSOC);
-
-if (!$usuario){
-    die("Usuário não encontrado");
-}
+require './dbConfig.php';
 
 
-if($_SERVER["REQUEST_METHOD"]==="POST"){
-    $nomeAlterado = trim($_POST['nome']);
-    $emailAlterado = trim($_POST['email']);
-    $senhaAlterada = trim($_POST['senha']);
-}
+$usuarioLogado = $_SESSION['usuario'] ?? null;
 
-if(!empty($nomeAlterado) && !empty($emailAlterado)){
-    $paramt = [
-        ':nome' => $nomeAlterado,
-        ':email' => $emailAlterado,
-        ':id' => $usuario['id']
-    ];
+// As duas tabelas que iremos buscar
+$tabelas = ['usuarios', 'organizadores'];
 
-    $sql = "UPDATE $tabela SET nome = :nome, email = :email";
+// Verifica se veio do POST
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $senhaAtual = $_POST['senhaAtual'] ?? '';
+    $novaSenha = $_POST['novaSenha'] ?? '';
+    $confirmarSenha = $_POST['confirmarSenha'] ?? '';
+    $email = trim($_POST['email']);
 
-    if(!empty($senhaAlterada)){
-          $novaSenhaHash = password_hash($novaSenha, PASSWORD_DEFAULT);
-          $sql .=", senha = :senha";
-          $paramt[':senha'] =  $senhaAlterada;
+    if (empty($senhaAtual) || empty($novaSenha) || empty($confirmarSenha)) {
+        die("Os campos senha atual, nova senha e confirma senha são obrigatórios.");
     }
 
-     $stmt = $pdo->prepare($sql);
-     $stmt->execute($params);
+    if ($novaSenha !== $confirmarSenha) {
+        die("As novas senhas não coincidem.");
+    }
 
-      $_SESSION['usuario'] = $novoNome;
-      header("Location: dashboardUser.php?atualizado=1");
-      exit;
+    $pdo->exec("USE eventosDB");
 
+    $usuario = null;
+    $tabelaEncontrada = null;
+
+    // Tenta encontrar o usuário em cada tabela
+    foreach ($tabelas as $tabela) {
+        $stmt = $pdo->prepare("SELECT * FROM $tabela WHERE nome = :nome");
+        $stmt->execute([':nome' => $usuarioLogado]);
+        $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($usuario) {
+            $tabelaEncontrada = $tabela;
+            break;
+        }
+    }
+
+    if (!$usuario) {
+        die("Usuário não encontrado em nenhuma tabela.");
+    }
+
+    if (!password_verify($senhaAtual, $usuario['senha'])) {
+        die("Senha atual incorreta.");
+    }
+
+    // Atualiza email e senha na tabela correta
+    $novaSenhaHash = password_hash($novaSenha, PASSWORD_DEFAULT);
+
+    // Assume que o campo ID da tabela usuarios é usuariosID e na organizadores é organizadoresID
+    $idCampo = ($tabelaEncontrada === 'usuarios') ? 'usuariosID' : 'organizadoresID';
+
+    $stmt = $pdo->prepare("UPDATE $tabelaEncontrada SET email = :email, senha = :senha WHERE $idCampo = :id");
+    $stmt->execute([
+        ':email' => $email,
+        ':senha' => $novaSenhaHash,
+        ':id' => $usuario[$idCampo]
+    ]);
+
+    header("Location: ../pages/dashboardUser.php?atualizado=1");
+    exit;
 }
-
 ?>

@@ -7,20 +7,16 @@ if (!isset($_SESSION['usuario'])) {
 }
 ?>
 
+    <link rel="stylesheet" href="../css/event.css">
 
+    
 
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- LINK CSS -->
-     <link rel="stylesheet" href="../css/event.css">
-</head>
-<body>
-    <h2>Lista de eventos</h2>
-     <p>Bem-vindo, <?php echo htmlspecialchars($_SESSION['usuario']); ?>!</p>
-     <a href="./dbLogout.php">Logout</a>
-</body>
-</html>
+   <form action="../data/dbEvent.php" method="POST">
+    <h2>Cadastrar Evento</h2>
+        <input type="text" id="titulo" name="titulo" placeholder="Nome" required>
+        <input type="text" id="descricao" name="descricao" placeholder="Descrição" required>
+        <input type="date" id="data" name="data" required>
+        <input type="time" id="hora" name="hora" required>
+        <input type="text" id="local" name="local" placeholder="local" required>
+        <button type="submit">Salvar</button>
+    </form>

@@ -17,11 +17,15 @@ if (!isset($_SESSION['usuario'])) {
    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- LINK CSS -->
      <link rel="stylesheet" href="../css/dashBoardOrganizer.css">
+    <!-- SCRIPT -->
+    <script src="../script/menu.js" defer></script>
+    <script src="../script/password.js" defer></script>
+    <script src="../script/event.js" defer></script>
 </head>
 <body>
     <!-- //HEADER -->
     <header>
-        <div class="btnMenu">
+        <div class="btnMenu" id="btnMenu">
             <i class="material-icons">menu</i>
         </div>
         <p>Bem-vindo, <?php echo htmlspecialchars($_SESSION['usuario']); ?>!</p>
@@ -29,16 +33,16 @@ if (!isset($_SESSION['usuario'])) {
      <!-- LINHA -->
     <hr class="linha">
     <!-- MENU -->
-     <aside class="menu">
-        <div class="eventos">
-            <a href="event.php">
+     <aside class="menu" id="aside">
+        <div class="eventos" id="btnEvent">
+            <a href="#">
                 <i class="material-icons" id="eventos">event_note</i>
                 <label for="eventos">Eventos</label>
             </a>
             
         </div>
         <div class="senha">
-            <a href="http://">
+            <a href="#" id="btnSenha">
                 <i class="material-icons">key</i>
                 <label for="senha">senha</label>
             </a>
@@ -51,5 +55,9 @@ if (!isset($_SESSION['usuario'])) {
            
         </div>
      </aside> 
+      <!-- PAGE CONTENT PASSWORD -->
+     <div id="contentPassword"></div> 
+
+     <div id="createEvent"></div> 
 </body>
 </html>
