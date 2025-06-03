@@ -16,6 +16,8 @@ if (!isset($_SESSION['usuario'])) {
     <input type="password" id="novaSenha" name="novaSenha" placeholder="Nova senha" required><br><br>
     <input type="password" id="confirmarSenha" name="confirmarSenha" placeholder="Confirmar nova senha" required><br><br> 
     <input type="email" name="email" id="email" placeholder="Email"><br><br> 
-    <button type="submit">Salvar nova senha</button>
+    <div class="btnSalvarSenha">
+        <button type="submit">Salvar nova senha</button>
+    </div>
    </div>
 </form>

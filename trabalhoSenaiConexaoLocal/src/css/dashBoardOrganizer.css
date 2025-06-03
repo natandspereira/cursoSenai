@@ -73,34 +73,28 @@ z-index: 2;
     font-size: 40px;
 }
 
-.menu .eventos{
+.menu .eventos, .senha, .logout, .listDeEventos{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    gap: 5px;
+    gap: 10px;
     text-transform: uppercase;
+}
+
+.menu .eventos{
+    margin-left: -40px;
 }
 
 .menu .senha{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    gap: 5px;
-    text-transform: uppercase;
-    margin-left: -15px;
-}
+    margin-left: -60px;
+} 
 
 .menu .logout{
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    gap: 5px;
-    margin-left: -25px;
+    margin-left: -70px;
 }
+
+
 
 .menu a{
     text-decoration: none;

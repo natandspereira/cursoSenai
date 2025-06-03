@@ -14,7 +14,8 @@ require_once __DIR__ . '/../data/dbEventUser.php';
     <meta charset="UTF-8">
     <title>Eventos</title>
     <link rel="stylesheet" href="../css/eventUser.css">
-    
+    <!-- ICONS GOOGLE -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
 </head>
 <body>
     
@@ -39,6 +40,7 @@ require_once __DIR__ . '/../data/dbEventUser.php';
                     <td><?= htmlspecialchars($row['hora']) ?></td>
                     <td><?= htmlspecialchars($row['local']) ?></td>
                     <td><?= date('d/m/Y', strtotime($row['data'])) ?></td>
+                    <td><i class="material-icons">recommend</i></td>
                 </tr>
             <?php endforeach; ?>
         <?php else: ?>

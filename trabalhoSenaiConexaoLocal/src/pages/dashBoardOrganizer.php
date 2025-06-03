@@ -39,7 +39,6 @@ if (!isset($_SESSION['usuario'])) {
                 <i class="material-icons" id="eventos">event_note</i>
                 <label for="eventos">Eventos</label>
             </a>
-            
         </div>
         <div class="senha">
             <a href="#" id="btnSenha">
@@ -47,12 +46,17 @@ if (!isset($_SESSION['usuario'])) {
                 <label for="senha">senha</label>
             </a>
         </div>
+        <div class="listDeEventos">
+            <a href="#" id="btnListaDeEventos">
+                <i class="material-icons">list_alt</i>
+                <label for="listDeEventos">MEUS EVENTOS</label>
+            </a>
+        </div>
          <div class="logout">
             <a href="./dbLogout.php">
                   <i class="material-icons" id="sair">logout</i>
                    <label for="sair">sair</label>
             </a>
-           
         </div>
      </aside> 
       <!-- PAGE CONTENT PASSWORD -->
