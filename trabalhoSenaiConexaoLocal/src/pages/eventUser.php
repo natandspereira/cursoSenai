@@ -41,6 +41,7 @@ require_once __DIR__ . '/../data/dbEventUser.php';
                     <td><?= htmlspecialchars($row['local']) ?></td>
                     <td><?= date('d/m/Y', strtotime($row['data'])) ?></td>
                     <td><i class="material-icons">recommend</i></td>
+                    <td><i class="material-icons">comment</i></td>
                 </tr>
             <?php endforeach; ?>
         <?php else: ?>

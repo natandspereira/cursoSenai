@@ -21,6 +21,7 @@ if (!isset($_SESSION['usuario'])) {
     <script src="../script/menu.js" defer></script>
     <script src="../script/password.js" defer></script>
     <script src="../script/event.js" defer></script>
+    <script src="../script/myEvent.js" defer></script>
 </head>
 <body>
     <!-- //HEADER -->
@@ -63,5 +64,7 @@ if (!isset($_SESSION['usuario'])) {
      <div id="contentPassword"></div> 
 
      <div id="createEvent"></div> 
+
+     <div id="myEvent"></div> 
 </body>
 </html>
